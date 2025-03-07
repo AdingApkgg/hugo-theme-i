@@ -1,6 +1,6 @@
 # hugo-theme-i
 
-Easily & powerful theme for Hugo engine.
+A responsive and minimalist Hugo theme designed for simplicity and flexibility. Perfect for those who value clean design and are open to frequent, bold layout changes with each update. Stay ahead with a theme that evolves with your needs.
 
 ## Install or Update
 
@@ -10,7 +10,7 @@ Easily & powerful theme for Hugo engine.
 **INSTALL** : Inside the folder of your Hugo site `iHugo`, run:
 
 ```sh
-git submodule add --depth=1 https://github.com/AdingApkgg/hugo-theme-i.git themes/PaperMod
+git submodule add --depth=1 https://github.com/AdingApkgg/hugo-theme-i.git themes/i
 git submodule update --init --recursive # needed when you reclone your repo (submodules may not get cloned automatically)
 
 ```
