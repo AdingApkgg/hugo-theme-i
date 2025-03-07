@@ -5,7 +5,7 @@ Easily & powerful theme for Hugo engine.
 ## Install or Update
 
 - Themes reside in `iHugo/themes` directory.
-- PaperMod will be installed in `iHugo/themes/i`
+- `i` will be installed in `iHugo/themes/i`
 
 **INSTALL** : Inside the folder of your Hugo site `iHugo`, run:
 
@@ -24,7 +24,7 @@ git submodule update --remote --merge
 
 ```
 
-Finally set theme as i in your site config
+Finally set theme as `i` in your site config
 
 In `hugo.toml` add:
 
