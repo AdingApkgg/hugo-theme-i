@@ -3,9 +3,9 @@
         {{ range .Site.Menus.main }}
         <a href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}
-        <button id="theme-toggle">Toggle Dark Mode</button>
+        <button id="theme-toggle">昼夜切换</button>
         <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-        <script src="/pagefind/pagefind-ui.js"></script>
+        <script async src="/pagefind/pagefind-ui.js"></script>
         <div id="search"></div>
         <script>
             window.addEventListener('DOMContentLoaded', (event) => {

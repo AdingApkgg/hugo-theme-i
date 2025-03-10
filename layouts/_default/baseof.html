@@ -8,23 +8,27 @@
   <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   <link rel="stylesheet"
     href="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/styles/github-dark.min.css">
-    <script async src="https://registry.npmmirror.com/pangu/latest/files/dist/browser/pangu.min.js"></script>
+  <script async src="https://registry.npmmirror.com/pangu/latest/files/dist/browser/pangu.min.js"></script>
+  <script src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js"></script>
 </head>
 
 <body>
   {{ partial "header.html" . }}
 
-  <main id="pjax-container">
+  <main>
     {{ block "main" . }}{{ end }}
   </main>
+
+  <script
+    src="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.umd.js"></script>
+  <link rel="stylesheet"
+    href="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.css">
 
   {{ partial "footer.html" . }}
 
   {{ partial "scripts.html" . }}
 
-  {{ partial "pjax.html" . }}
-
-  <script async src="{{ "js/main.js" | relURL }}"></script>
+  <script src="{{ "js/main.js" | relURL }}"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/js/sw.js')
