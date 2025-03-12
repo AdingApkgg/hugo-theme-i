@@ -1,42 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}" data-theme="light">
+<html lang="{{ .Site.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Title }} | {{ .Site.Title }}</title>
-  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
-  <link rel="stylesheet"
-    href="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/styles/github-dark.min.css">
-  <script async src="https://registry.npmmirror.com/pangu/latest/files/dist/browser/pangu.min.js"></script>
-  <script src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js"></script>
-  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-  <script async src="/pagefind/pagefind-ui.js"></script>
-  <link rel="stylesheet" href="https://registry.npmmirror.com/weblive2d/latest/files/waifu.css">
-  <script async="async" src="https://registry.npmmirror.com/weblive2d/latest/files/js/autoload.js"></script>
+  {{ partial "head.html" . }}
 </head>
 
 <body>
-  {{ partial "header.html" . }}
-
+  <header>
+    {{ partial "header.html" . }}
+  </header>
+  <div id="search"></div>
   <main>
     {{ block "main" . }}{{ end }}
   </main>
-
-  <script src="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.umd.js"></script>
-  <link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.css">
-
-  {{ partial "footer.html" . }}
-
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
   {{ partial "scripts.html" . }}
-
-  <span id="fps"></span>
-  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
-  <meting-js id="8464409595" server="netease" type="playlist" fixed="true" autoplay="false" order="random" volume="0.3"
-    list-folded="false" list-max-height="36vh"></meting-js>
-  <script async="async" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
-  <script async="async" src="https://registry.npmmirror.com/meting/latest/files/dist/Meting.min.js"></script>
-  <script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 
 </html>

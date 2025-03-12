@@ -1,3 +1,66 @@
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true });
+    });
+</script>
+<script src="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.css">
+<script>
+    window.onload = function () {
+        Fancybox.bind('[data-fancybox="gallery"]', {});
+        pangu.spacingElementById("main");
+        pangu.spacingElementByClassName("comment");
+        pangu.spacingElementByTagName("p");
+        document.addEventListener("DOMContentLoaded", () => {
+            pangu.autoSpacingPage();
+        });
+    };
+    Fancybox.fromSelector('[data-fancybox="gallery"]');
+    function initDarkMode() {
+        const themeToggle = document.getElementById("theme-toggle");
+        const currentTheme = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (themeToggle) {
+            themeToggle.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") === "dark"
+                        ? "light"
+                        : "dark";
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+            });
+        }
+    }
+    document.addEventListener("DOMContentLoaded", initDarkMode);
+    function initScrollEffects() {
+        const header = document.querySelector("header");
+        const backToTopButton = document.getElementById("back-to-top");
+        if (!header || !backToTopButton) return;
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                header.classList.add("fixed");
+            } else {
+                header.classList.remove("fixed");
+            }
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = "block";
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.style.display = "none";
+                backToTopButton.classList.remove("show");
+            }
+        });
+        backToTopButton.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initScrollEffects);
+    var meting_api =
+        "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
+</script>
 <script async src="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/highlight.min.js"></script>
 <script>
     function initCodeHighlight() {
@@ -7,3 +70,10 @@
     }
     document.addEventListener('DOMContentLoaded', initCodeHighlight);
 </script>
+<button id="back-to-top" title="Go to top">↑</button>
+<span id="fps"></span>
+<link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css">
+<meting-js id="8464409595" server="netease" type="playlist" fixed="true" autoplay="false" order="random" volume="0.3"
+    list-folded="false" list-max-height="36vh"></meting-js>
+<script async="async" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script>
+<script async="async" src="https://registry.npmmirror.com/meting/latest/files/dist/Meting.min.js"></script>

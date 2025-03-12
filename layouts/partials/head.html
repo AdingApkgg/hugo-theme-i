@@ -1,5 +1,17 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<script async src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js"></script>
+<link rel="stylesheet"
+    href="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/styles/github-dark.min.css">
+<script async src="https://registry.npmmirror.com/pangu/latest/files/dist/browser/pangu.min.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js"></script>
+<script async src="https://registry.npmmirror.com/pace-js/latest/files/pace.min.js"></script>
+<link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/latest/files/themes/blue/pace-theme-flash.css">
+<link rel="stylesheet" href="https://registry.npmmirror.com/weblive2d/latest/files/waifu.css">
+<script async="async" src="https://registry.npmmirror.com/weblive2d/latest/files/js/autoload.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script async src="/pagefind/pagefind-ui.js"></script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
