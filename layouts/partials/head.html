@@ -1,7 +1,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<meta property="og:title" content="{{ .Title }}" />
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:image" content="{{ .Site.Params.ogImage | absURL }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+<link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }}" />
 <script async src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js"></script>
+<script async src="https://registry.npmmirror.com/quicklink/latest/files/dist/quicklink.umd.js"></script>
+<script async src="https://registry.npmmirror.com/lozad/latest/files/dist/lozad.min.js"></script>
 <link rel="stylesheet"
     href="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/styles/github-dark.min.css">
 <script async src="https://registry.npmmirror.com/pangu/latest/files/dist/browser/pangu.min.js"></script>
@@ -10,7 +19,7 @@
 <script async src="https://registry.npmmirror.com/pace-js/latest/files/pace.min.js"></script>
 <link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/latest/files/themes/blue/pace-theme-flash.css">
 <link rel="stylesheet" href="https://registry.npmmirror.com/weblive2d/latest/files/waifu.css">
-<script async="async" src="https://registry.npmmirror.com/weblive2d/latest/files/js/autoload.js"></script>
+<script async src="https://registry.npmmirror.com/weblive2d/latest/files/js/autoload.js"></script>
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
 <script async src="/pagefind/pagefind-ui.js"></script>
 {{ partialCached "head/css.html" . }}

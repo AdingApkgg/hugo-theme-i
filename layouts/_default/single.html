@@ -11,5 +11,6 @@
 {{ partial "comments/include" . }}
 {{ end }}
 
+{{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 {{ end }}

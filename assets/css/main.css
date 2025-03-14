@@ -648,7 +648,7 @@ header.fixed {
   right: 10px;
   z-index: 2;
   padding: 10px 15px;
-  font-size: 16px;
+  font-size: 1em;
   background-color: #007bff;
   color: white;
   border: none;
@@ -844,6 +844,15 @@ footer p {
 .aplayer-list ol li,
 .aplayer-music {
   text-align: initial !important;
+}
+
+.lozad {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.lozad.loaded {
+  opacity: 1;
 }
 
 @media (max-width: 960px) {

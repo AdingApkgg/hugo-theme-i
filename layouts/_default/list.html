@@ -1,31 +1,8 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-<p>{{ .Content }}</p>
-
-<ul class="post-list">
-  {{ range .Paginator.Pages }}
-  <li class="post-item">
-    {{- $img := findRE `!\[.*?\]\((.*?)\)` .Content 1 -}}
-    {{- if $img -}}
-    {{- $imgUrl := index $img 0 | replaceRE `!\[.*?\]\((.*?)\)` "$1" -}}
-    <div class="post-image">
-      <img src="{{ $imgUrl }}" alt="文章图片">
-    </div>
-    {{- end -}}
-
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <p>{{ .Summary }}</p>
-  </li>
-  {{ end }}
-</ul>
-
-<div class="pagination">
-  {{ if .Paginator.HasPrev }}
-  <a href="{{ .Paginator.Prev.URL }}">上一页</a>
-  {{ end }}
-  <span>第 {{ .Paginator.PageNumber }} 页 / 共 {{ .Paginator.TotalPages }} 页</span>
-  {{ if .Paginator.HasNext }}
-  <a href="{{ .Paginator.Next.URL }}">下一页</a>
-  {{ end }}
-</div>
+{{ .Content }}
+{{ range .Pages }}
+<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+{{ .Summary }}
+{{ end }}
 {{ end }}

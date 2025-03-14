@@ -2,7 +2,7 @@
 {{- if and .Site.Params.comments.enabled (eq .Site.Params.comments.provider "valine") -}}
 <div class="comments">
     <div id="vcomments" class="comment"></div>
-    <script src="//registry.npmmirror.com/valine/latest/files/dist/Valine.min.js"></script>
+    <script async src="//registry.npmmirror.com/valine/latest/files/dist/Valine.min.js"></script>
     <script>
         new Valine({
             el: "#vcomments",

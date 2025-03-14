@@ -7,6 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if (typeof initDarkMode === "function") initDarkMode();
     if (typeof initCodeHighlight === "function") initCodeHighlight();
     if (typeof initScrollEffects === "function") initScrollEffects();
+    quicklink.listen({ priority: true });
+    const observerLozad = lozad(".lozad", {
+      load: function (element) {
+        element.src = element.dataset.src;
+        element.onload = function () {
+          element.classList.add("loaded");
+        };
+      },
+    });
+    observerLozad.observe();
   });
 });
 

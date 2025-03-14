@@ -1,11 +1,10 @@
+<script src="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.css">
+<script async src="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/highlight.min.js"></script>
 <script>
     window.addEventListener("DOMContentLoaded", (event) => {
         new PagefindUI({ element: "#search", showSubResults: true });
     });
-</script>
-<script src="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.umd.js"></script>
-<link rel="stylesheet" href="https://registry.npmmirror.com/@fancyapps/ui/latest/files/dist/fancybox/fancybox.css">
-<script>
     window.onload = function () {
         Fancybox.bind('[data-fancybox="gallery"]', {});
         pangu.spacingElementById("main");
@@ -14,6 +13,18 @@
         document.addEventListener("DOMContentLoaded", () => {
             pangu.autoSpacingPage();
         });
+        quicklink.listen({
+            priority: true,
+        });
+        const observerLozad = lozad(".lozad", {
+            load: function (element) {
+                element.src = element.dataset.src;
+                element.onload = function () {
+                    element.classList.add("loaded");
+                };
+            },
+        });
+        observerLozad.observe();
     };
     Fancybox.fromSelector('[data-fancybox="gallery"]');
     function initDarkMode() {
@@ -58,17 +69,17 @@
         });
     }
     document.addEventListener('DOMContentLoaded', initScrollEffects);
-    var meting_api =
-        "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
-</script>
-<script async src="https://registry.npmmirror.com/@highlightjs/cdn-assets/latest/files/highlight.min.js"></script>
-<script>
+    quicklink.listen({
+        priority: true,
+    });
     function initCodeHighlight() {
         document.querySelectorAll('pre code').forEach((block) => {
             hljs.highlightBlock(block);
         });
     }
     document.addEventListener('DOMContentLoaded', initCodeHighlight);
+    var meting_api =
+        "https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r";
 </script>
 <button id="back-to-top" title="Go to top">↑</button>
 <span id="fps"></span>
