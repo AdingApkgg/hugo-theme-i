@@ -1,0 +1,14 @@
+<select onchange="changeLanguage(this.value)">
+    {{ range .Site.Languages }}
+    <option value="{{ .Lang }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>
+        {{ .LanguageName }}
+    </option>
+    {{ end }}
+</select>
+<script>
+    function changeLanguage(lang) {
+        var currentPath = window.location.pathname;
+        var newUrl = "/" + lang + currentPath.replace(/^\/[a-z]{2}\//, "/");
+        window.location.href = newUrl;
+    }
+</script>
