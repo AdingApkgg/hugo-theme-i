@@ -1,24 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const pjax = new Pjax({
-    selectors: ["title", "meta[name=description]", "header", "main", "footer"],
-    cacheBust: false,
-  });
-  document.addEventListener("pjax:complete", function () {
-    if (typeof initDarkMode === "function") initDarkMode();
-    if (typeof initCodeHighlight === "function") initCodeHighlight();
-    if (typeof initScrollEffects === "function") initScrollEffects();
-    quicklink.listen({ priority: true });
-    const observerLozad = lozad(".lozad", {
-      load: function (element) {
-        element.src = element.dataset.src;
-        element.onload = function () {
-          element.classList.add("loaded");
-        };
-      },
-    });
-    observerLozad.observe();
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  initDarkMode();
+  initScrollEffects();
+  mediumZoom(".zoomable");
 });
+
+document.addEventListener("pjax:complete", () => {
+  quicklink.listen({ priority: true });
+  initDarkMode();
+  initScrollEffects();
+  mediumZoom(".zoomable");
+});
+
+function initDarkMode() {
+  const themeToggle = document.getElementById("theme-toggle");
+  const currentTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const newTheme =
+        document.documentElement.getAttribute("data-theme") === "dark"
+          ? "light"
+          : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+    });
+  }
+}
+
+function initScrollEffects() {
+  const header = document.querySelector("header");
+  const backToTopButton = document.getElementById("back-to-top");
+  if (!header || !backToTopButton) return;
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 200) {
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
+    }
+    if (window.scrollY > 300) {
+      backToTopButton.style.display = "block";
+      backToTopButton.classList.add("show");
+    } else {
+      backToTopButton.style.display = "none";
+      backToTopButton.classList.remove("show");
+    }
+  });
+  backToTopButton.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
 
 function displayResults(results) {
   searchResults.innerHTML = "";

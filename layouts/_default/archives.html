@@ -5,14 +5,13 @@
 {{ range $groupedPages }}
 <h2>{{ .Key }}</h2>
 {{ range .Pages }}
-<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-<span style="float: right; color: #888; font-size: 0.9em;">
-    {{ .Date.Format "01-02" }}
-</span>
+<h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a><span style="float: right; color: #888; font-size: 0.9em;">
+        {{ .Date.Format "01-02" }}
+    </span></h2>
 {{- $img := findRE `!\[.*?\]\((.*?)\)` .Content 1 -}}
 {{- if $img -}}
 {{- $imgUrl := index $img 0 | replaceRE `!\[.*?\]\((.*?)\)` "$1" -}}
-<img src="{{ $imgUrl }}" alt="文章图片" style="max-width: 100%; height: auto;">
+<img src="{{ $imgUrl }}" alt="imgAlt" style="max-width: 100%; height: auto;">
 {{- end -}}
 <p>{{ .Summary }}</p>
 {{ end }}

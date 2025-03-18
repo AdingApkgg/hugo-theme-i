@@ -1,11 +1,17 @@
 :root {
   --bg-color: #ffffff;
+  --bg-span-color: rgba(120, 120, 120, 0.2);
+  --bg-li-color: rgba(250, 250, 250, 0.3);
+  --border-color: rgba(200, 200, 200, 1);
   --text-color: #333333;
   --link-color: #007bff;
 }
 
 [data-theme="dark"] {
   --bg-color: #1a1a1a;
+  --bg-span-color: rgba(50, 50, 50, 1);
+  --bg-li-color: rgba(51, 51, 51, 0.3);
+  --border-color: rgba(250, 250, 250, 0.3);
   --text-color: #f8f9fa;
   --link-color: #4dabf7;
 }
@@ -547,18 +553,7 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
-}
-
-body:before {
-  content: '';
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: url('/img/cute.webp');
-  opacity: 0.3;
-  z-index: -1;
+  background: var(--bg-color);
 }
 
 a {
@@ -592,7 +587,8 @@ kbd {
   white-space: nowrap;
 }
 
-code {
+p code,
+li code {
   font-family: Consolas, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 0.875em;
   background: #f3f3f3;
@@ -736,16 +732,6 @@ footer p {
   font-weight: bold;
 }
 
-.highlight pre {
-  border-radius: 4px;
-}
-
-.highlight pre code {
-  display: block;
-  padding: 1em;
-  font-family: Consolas, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
 .pagefind-ui form input,
 .pagefind-ui form button,
 .pagefind-ui div * {
@@ -819,6 +805,39 @@ footer p {
   padding: 1rem 0;
 }
 
+.taxonomy {
+  list-style: none;
+  font-size: 1.2em;
+  padding: 0;
+}
+
+.taxonomy li {
+  display: inline-block;
+  margin: 4px;
+  border: 2px solid var(--border-color);
+  border-radius: .2em;
+  box-shadow: 0 0 .1em .1em rgba(0, 0, 0, .1);
+  background: var(--bg-li-color);
+  padding: 0 .4em;
+  overflow-wrap: break-word;
+  transition: all 0.3s ease-in;
+}
+
+.taxonomy li:hover {
+  opacity: 0.7;
+  box-shadow: 0 0 .08em .12em rgba(0, 0, 0, .3);
+  transition: all 0.1s ease;
+  transform: scale(0.95);
+}
+
+.taxonomy li span {
+  color: var(--text-color);
+  font-size: 0.875em;
+  background: var(--bg-span-color);
+  border-radius: 3px;
+  padding: 2px 4px;
+}
+
 #fps {
   position: fixed;
   right: 0px;
@@ -846,13 +865,9 @@ footer p {
   text-align: initial !important;
 }
 
-.lozad {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
-}
-
-.lozad.loaded {
-  opacity: 1;
+.medium-zoom-image--opened,
+.medium-zoom-overlay {
+  z-index: 1001;
 }
 
 @media (max-width: 960px) {

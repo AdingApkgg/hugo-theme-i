@@ -1,2 +1,2 @@
-<img class="lozad" data-src="{{ .Destination | safeURL }}" data-fancybox="gallery" data-caption="{{ .Text }}"
-    title="{{ .Text }}" alt="{{ .Text }}" />
+<img class="zoomable" loading="lazy" src="{{ .Destination | relURL | safeURL }}" title="{{ .Text }}"
+    alt="{{ .Text }}" />
