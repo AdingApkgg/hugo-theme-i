@@ -4,6 +4,8 @@
 #--------------------------------------
 archives:
   other: Archives
+docs:
+  other: Docs
 tag:
   other: Tag
 tags:
@@ -16,6 +18,8 @@ categories:
   other: Categories
 CateTitle:
   other: Classification Items
+author:
+  other: Author
 AllSome:
   other: "All {{ .Some }}"
 

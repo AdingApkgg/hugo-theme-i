@@ -5,6 +5,8 @@
 
 archives:
   other: 归档
+docs:
+  other: 文档
 tag:
   other: 标签
 tags:
@@ -17,6 +19,8 @@ categories:
   other: 分类
 CateTitle:
   other: 分类栏目
+author:
+  other: 作者
 AllSome:
   other: "所有 {{ .Some }}"
 

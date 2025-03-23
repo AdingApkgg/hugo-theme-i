@@ -4,6 +4,8 @@
 #--------------------------------------
 archives:
   other: アーカイブ
+docs:
+  other: 書類
 tag:
   other: タグ
 tags:
@@ -16,6 +18,8 @@ categories:
   other: カテゴリー
 CateTitle:
   other: カテゴリー項目
+author:
+  other: 著者
 AllSome:
   other: "すべての {{ .Some }}"
 
