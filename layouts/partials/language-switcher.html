@@ -1,14 +1,22 @@
 <select onchange="changeLanguage(this.value)">
-    {{ range .Site.Languages }}
-    <option value="{{ .Lang }}" {{ if eq $.Site.Language.Lang .Lang }}selected{{ end }}>
-        {{ .LanguageName }}
+    {{ range $lang := .Site.Languages }}
+    {{ $url := $.Permalink }}
+    {{ with $.Translations }}
+    {{ range . }}
+    {{ if eq .Language.Lang $lang.Lang }}
+    {{ $url = .Permalink }}
+    {{ end }}
+    {{ end }}
+    {{ end }}
+    <option value="{{ $lang.Lang }}" data-url="{{ $url }}" {{ if eq $.Site.Language.Lang $lang.Lang }}selected{{ end }}>
+        {{ $lang.LanguageName }}
     </option>
     {{ end }}
 </select>
 <script>
     function changeLanguage(lang) {
-        var currentPath = window.location.pathname;
-        var newUrl = "/" + lang + currentPath.replace(/^\/[a-z]{2}\//, "/");
+        var select = document.querySelector('select');
+        var newUrl = select.options[select.selectedIndex].getAttribute('data-url');
         window.location.href = newUrl;
     }
 </script>
