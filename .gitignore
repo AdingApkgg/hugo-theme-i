@@ -3,4 +3,3 @@ content/
 public/
 resources/
 .hugo_build.lock
-hugo.toml
