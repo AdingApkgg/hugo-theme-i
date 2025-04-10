@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   initDarkMode();
   initScrollEffects();
-  mediumZoom(".zoomable");
+  initMediumZoom();
 });
 
 document.addEventListener("pjax:complete", () => {
   quicklink.listen({ priority: true });
   initDarkMode();
   initScrollEffects();
-  mediumZoom(".zoomable");
+  initMediumZoom();
 });
 
 function initDarkMode() {
@@ -51,6 +51,14 @@ function initScrollEffects() {
       behavior: "smooth",
     });
   });
+}
+
+function initMediumZoom() {
+  mediumZoom(".zoomable", {
+    margin: 0,
+    background: "transparent",
+    scrollOffset: 20,
+  })
 }
 
 function displayResults(results) {
