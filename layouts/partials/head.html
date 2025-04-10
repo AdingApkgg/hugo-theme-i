@@ -9,14 +9,13 @@
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <link rel="manifest" href="{{ .Site.BaseURL }}manifest.json">
 <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{ .Site.Title }}" />
-<script async src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js"></script>
-<script src="https://registry.npmmirror.com/quicklink/latest/files/dist/quicklink.umd.js"></script>
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/pagefind/pagefind-ui.js"></script>
-<script async src="https://registry.npmmirror.com/pace-js/latest/files/pace.min.js"></script>
-<link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/latest/files/themes/blue/pace-theme-flash.css">
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
-<script async src="/pagefind/pagefind-ui.js"></script>
+<script async src="https://registry.npmmirror.com/pjax/latest/files/pjax.min.js" importance="high"></script>
+<script src="https://registry.npmmirror.com/quicklink/latest/files/dist/quicklink.umd.js" importance="high"></script>
+<script async src="https://registry.npmmirror.com/pace-js/latest/files/pace.min.js" importance="high"></script>
+<link rel="stylesheet" href="https://registry.npmmirror.com/pace-js/latest/files/themes/blue/pace-theme-flash.css"
+    importance="high">
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" importance="high">
+<script async src="/pagefind/pagefind-ui.js" importance="high"></script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const pjax = new Pjax({
@@ -35,3 +34,5 @@
 </script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+<script defer src="//instant.page/5.2.0" type="module"
+    integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
