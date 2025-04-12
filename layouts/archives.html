@@ -6,15 +6,21 @@
 <h2>{{ .Key }}</h2>
 {{ range .Pages }}
 <article>
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a><span style="float: right; color: #888; font-size: 0.9em;">
-            {{ .Date.Format "01-02" }}
-        </span></h2>
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <div class="post-meta">
+        <span>{{ T "author" }}: {{ .Params.author | default .Site.Params.defaultAuthor }}</span>
+        {{ with .Date }}
+        <span> | {{ T "PostMeta.publish.date" }}: {{ .Format "2006-01-02 15:04:05 -07:00" }}</span>
+        {{ end }}
+    </div>
     {{- $img := findRE `!\[.*?\]\((.*?)\)` .Content 1 -}}
     {{- if $img -}}
     {{- $imgUrl := index $img 0 | replaceRE `!\[.*?\]\((.*?)\)` "$1" -}}
     <img src="{{ $imgUrl }}" alt="imgAlt" style="max-width: 100%; height: auto;">
     {{- end -}}
     {{ .Summary }}
+    {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 </article>
 {{ end }}
 {{ end }}
