@@ -153,3 +153,9 @@ ToolBtns:
   theme: "テーマ切り替え"
   lang: "多言語翻訳"
   backTop: "ページトップへ"
+
+AgeWarning:
+  text: "あなたは18歳以上ですか?"
+  confirm: "はい"
+  deny: "いいえ"
+  url: "//nicovideo.jp/watch/sm7127483"

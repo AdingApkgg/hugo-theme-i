@@ -153,3 +153,9 @@ ToolBtns:
   theme: "Change Theme"
   lang: "Multilingual translation"
   backTop: "Back to Top"
+
+AgeWarning:
+  text: "Are you 18 years or older?"
+  confirm: "YES"
+  deny: "NO"
+  url: "//youtube.com/watch?v=dQw4w9WgXcQ"
