@@ -1,16 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+  initGalPopup();
+  lunar();
   initDarkMode();
   initScrollEffects();
   initMediumZoom();
-  initGalPopup()
 });
 
 document.addEventListener("pjax:complete", () => {
   quicklink.listen({ priority: true });
+  initGalPopup();
+  lunar();
   initDarkMode();
   initScrollEffects();
   initMediumZoom();
-  lunar()
 });
 
 function initDarkMode() {
