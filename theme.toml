@@ -5,7 +5,7 @@ description = 'Easily & powerful theme for Hugo engine.'
 homepage = 'https://github.com/AdingApkgg/hugo-theme-i'
 tags = ['blog', 'responsive', 'minimal', 'personal', 'multilingual', 'dark mode', 'docs', 'archive']
 features = ['blog', 'responsive', 'cover', 'multilingual', 'social-icons', 'pjax', 'sw', 'search', 'highlight']
-min_version = "0.146.4"
+min_version = "0.147.1"
 demosite = 'https://vns.saop.cc/'
 
 [author]
