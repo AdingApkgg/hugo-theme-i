@@ -1,23 +1,6 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
-<div class="post-meta">
-    {{ if .Params.author }}
-    <span>{{ T "author" }}:
-        {{ with .Params.author }}
-        {{ if reflect.IsSlice . }}
-        {{ delimit . ", " }}
-        {{ else }}
-        {{ . }}
-        {{ end }}
-        {{ else }}
-        {{ .Site.Params.defaultAuthor }}
-        {{ end }}
-    </span>
-    {{ end }}
-    {{ with .Date }}
-    <span> | {{ T "PostMeta.publish.date" }} {{ .Format "2006-01-02 15:04:05 -07:00" }}</span>
-    {{ end }}
-</div>
+{{ partial "post-meta.html" . }}
 <div class="content">
     {{ .Content }}
 </div>

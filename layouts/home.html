@@ -4,12 +4,7 @@
 {{ range site.RegularPages }}
 <article>
   <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-  <div class="post-meta">
-    <span>{{ T "author" }}: {{ .Params.author | default .Site.Params.defaultAuthor }}</span>
-    {{ with .Date }}
-    <span> | {{ T "PostMeta.publish.date" }}: {{ .Format "2006-01-02 15:04:05 -07:00" }}</span>
-    {{ end }}
-  </div>
+  {{ partial "post-meta.html" . }}
   {{ .Summary }}
   {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
